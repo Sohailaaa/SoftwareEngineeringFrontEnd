@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clients Manager</title>
+    <link rel="icon" href="../assets/logo.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="../styles/general.css">
+    <link rel="stylesheet" type="text/css" href="../styles/admin.css">
+</head>
+<body>
+    <div class="container">
+		<div class="sidebar">
+            <h1>Prosperity Bank</h1>
+            <hr />
+			<ul>
+				<li><a href="dashboard.html">Dashboard</a></li>
+				<li class="active"><a href="">Clients</a></li>
+				<li><a href="bankers.html">Bankers</a></li>
+				<li><a href="reported-issues.html">Reported Issues</a></li>
+                <li><a href="login.html">Log out</a></li>
+			</ul>
+		</div>
+		<main>
+			<h1>Manage the Bank's Clients</h1>
+			<p>Total number of bank's clients today: 3469182</p>
+			<p>Net increase in bank's clients from previous month: 9182</p>
+            <br />
+            <form action="clients-example.html" class="search">
+                <label for="search">Search for a Client</label>
+                <div>
+                <input type="text" id="announcement" placeholder="Client national ID or username" required></input>
+                <button type="submit">Search</button>
+            </div>
+            </form>
+        </main>
+	</div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bankers Manager</title>
+    <link rel="icon" href="../assets/logo.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="../styles/general.css">
+    <link rel="stylesheet" type="text/css" href="../styles/admin.css">
+</head>
+<body>
+    <div class="container">
+		<div class="sidebar">
+            <h1>Prosperity Bank</h1>
+            <hr />
+			<ul>
+				<li><a href="dashboard.html">Dashboard</a></li>
+				<li><a href="clients.html">Clients</a></li>
+				<li class="active"><a href="bankers.html">Bankers</a></li>
+				<li><a href="reported-issues.html">Reported Issues</a></li>
+                <li><a href="login.html">Log out</a></li>
+			</ul>
+		</div>
+		<main>
+            <br />
+            <form action="bankers-example.html" class="search">
+                <label for="search">Search for a Banker</label>
+                <div>
+                    <input type="text" id="search" placeholder="Banker SSN or username" required></input>
+                    <button type="submit">Search</button>
+                </div>
+            </form>
+            <br />
+            <form class="search" action="bankers.html">
+                <h1>Banker #325</h1>
+                <div>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" value="John Doe"></input>
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" value="john.doe@gmail.com"></input>
+                </div>
+                <div>
+                    <label for="username">Username</label>
+                    <input type="text" id="username" value="john_doe152"></input>
+                </div>
+                <div>
+                    <label for="password">Password</label>
+                    <input type="text" id="name" value="Balabizo123"></input>
+                </div>
+                <div>
+                    <label for="ssn">SSN</label>
+                    <input type="number" id="ssn" value="213215" disabled></input>
+                </div>
+                <div>
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" value="+201241258"></input>
+                </div>
+                <br />
+                <br />
+                <div>
+                    <button id="removeBtn" type="button" class="remove">Remove Banker</button>
+                    <button type="submit">Update Info</button>
+                </div>
+                <article id="confirmModal" class="modal">
+                    <div class="modal-content">
+                      <h3>Are you sure you want to remove this banker?</h3>
+                      <div class="modal-buttons">
+                        <button id="confirmBtn" type="button">Yes</button>
+                        <button id="cancelBtn" type="button">Cancel</button>
+                      </div>
+                    </div>
+                </article>
+            </form>
+        </main>
+        <script>
+            var removeBtn = document.getElementById("removeBtn");
+            var confirmModal = document.getElementById("confirmModal");
+            var confirmBtn = document.getElementById("confirmBtn");
+            var cancelBtn = document.getElementById("cancelBtn");
+            removeBtn.onclick = function() {
+              confirmModal.style.display = "block";
+            }
+            confirmBtn.onclick = function() {
+              confirmModal.style.display = "none";
+              window.location.href = "bankers.html";
+            }
+            cancelBtn.onclick = function() {
+              confirmModal.style.display = "none";
+            }
+            window.onclick = function(event) {
+              if (event.target == confirmModal) {
+                confirmModal.style.display = "none";
+              }
+            }
+            </script>
+	</div>
+</body>
+</html>

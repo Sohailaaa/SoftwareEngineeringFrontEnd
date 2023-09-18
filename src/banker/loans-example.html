@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loans Manager</title>
+    <link rel="icon" href="../assets/logo.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="../styles/general.css">
+    <link rel="stylesheet" type="text/css" href="../styles/banker.css">
+</head>
+<body>
+    <div class="container">
+		<div class="sidebar">
+            <img src="../assets/logo.png" alt="logo" className="logo" height="250px" width="250px"></img>
+            <hr />
+			<ul>
+				<li><a href="dashboard.html">Dashboard</a></li>
+				<li><a href="bank-accounts.html">Bank Accounts</a></li>
+				<li><a href="credit-cards.html">Credit Cards</a></li>
+				<li class="active"><a href="loans.html">Loans</a></li>
+                <li><a href="login.html">Log out</a></li>
+			</ul>
+		</div>
+		<main>
+            <br />
+            <form action="loans-example.html" class="search">
+                <label for="search" id="bigger-label">Search for a Loan</label>
+                <div>
+                    <input type="text" id="search" placeholder="Loan ID" required></input>
+                    <button type="submit">Search</button>
+                </div>
+            </form>
+            <br />
+            <form class="search" action="loans.html">
+                <h1>Loan ID 879</h1>
+                <div>
+                    <label for="number">Account Number</label>
+                    <input type="number" id="number" value="64243"></input>
+                </div>
+                <div>
+                    <label for="name">Account Holder</label>
+                    <input type="text" id="name" value="Omar Shaaban"></input>
+                </div>
+                <div>
+                    <label for="nat_id">National ID</label>
+                    <input type="number" id="nat_id" value="3462648" disabled></input>
+                </div>
+                <div>
+                    <label for="balance">Balance (EGP)</label>
+                    <input type="number" id="balance" name="balance" min="0" max="1000000" step="0.01" value="3452.00">
+                </div>
+                <div>
+                    <label for="loanid">Loan ID</label>
+                    <input type="number" id="loanid" value="879" disabled></input>
+                </div>
+                <div>
+                    <label for="duedate">Due Date</label>
+                    <input type="date" id="duedate" value="2026-04-06"></input>
+                </div>
+                <div>
+                    <label for="amount">Amount (EGP)</label>
+                    <input type="number" id="amount" value="20000"></input>
+                </div>
+                <div>
+                    <label for="type">Type</label>
+                    <select id="myDropdown">
+                        <option value="value1">Car</option>
+                        <option value="value2">Personal</option>
+                      </select>
+                </div>
+                <article id="confirmModal" class="modal">
+                    <div class="modal-content">
+                      <h3>Are you sure you want to revoke this loan?</h3>
+                      <div class="modal-buttons">
+                        <button id="confirmBtn" type="button">Yes</button>
+                        <button id="cancelBtn" type="button">Cancel</button>
+                      </div>
+                    </div>
+                </article>
+                <br />
+                <br />
+                <div>
+                    <button id="removeBtn" type="button" class="remove">Revoke Loan</button>
+                    <button type="submit">Update Info</button>
+                </div>
+            </form>
+            <script>
+                var removeBtn = document.getElementById("removeBtn");
+                var confirmModal = document.getElementById("confirmModal");
+                var confirmBtn = document.getElementById("confirmBtn");
+                var cancelBtn = document.getElementById("cancelBtn");
+                removeBtn.onclick = function() {
+                  confirmModal.style.display = "block";
+                }
+                confirmBtn.onclick = function() {
+                  confirmModal.style.display = "none";
+                  window.location.href = "loans.html";
+                }
+                cancelBtn.onclick = function() {
+                  confirmModal.style.display = "none";
+                }
+                window.onclick = function(event) {
+                  if (event.target == confirmModal) {
+                    confirmModal.style.display = "none";
+                  }
+                }
+                </script>
+        </main>
+	</div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Registration</title>
+    <link rel="icon" href="../assets/logo.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="../styles/general.css">
+    <link rel="stylesheet" type="text/css" href="../styles/client.css">
+</head>
+<body>
+    <nav>
+        <div>
+            <img src="../assets/logo.png" alt="logo" className="logo" height="125px" width="125px"></img>
+        </div>
+        <div>
+            <a href="login.html"><button>Log in</button></a>
+        </div>
+    </nav>
+    <div class="login-container">
+		<h1>Register for a New Account</h1>
+		<form>
+            <label for="name">First Name</label>
+			<input type="text" id="first-name" name="name" placeholder="Enter your first name" required>
+            <label for="name">Last Name</label>
+			<input type="text" id="last-name" name="name" placeholder="Enter your last name" required>
+            <label for="email">Email</label>
+			<input type="email" id="email" name="email" placeholder="Enter your email" required>
+			<label for="username">Username</label>
+			<input type="text" id="username" name="username" placeholder="Enter your username" required>
+			<label for="password">Password</label>
+			<input type="password" id="password" name="password" placeholder="Enter your password" required>
+            <label for="bank-account-number">Bank Account Number (if exists)</label>
+			<input type="number" id="bank-account-number" name="bank-account-number" placeholder="Enter your bank account number if you have one">
+			<button id="applyBtn" type="submit">Register</button>
+		</form>
+	</div>
+    <div id="successModal" class="modal">
+      <div class="modal-content">
+        <h2>Success!</h2>
+        <p>You have successfully registered on the system.</p>
+      </div>
+    </div>
+
+    <script>
+        var modal = document.getElementById("successModal");
+        var applyBtn = document.getElementById("applyBtn");
+
+        applyBtn.addEventListener("click", function(event) {
+  const firstName = document.getElementById("first-name").value;
+  const lastName = document.getElementById("last-name").value;
+  const phone = document.getElementById("username").value;
+  const email = document.getElementById("email").value;
+  const nationalId = document.getElementById("password").value;
+
+  if (firstName && lastName && phone && email && nationalId) {
+    modal.style.display = "block";
+    event.preventDefault();
+  }
+});
+
+        // When the user clicks outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+    <footer>
+        <p className="cp-text" >© Copyright 2023 Prosperity Bank. All rights reserved.</p>
+        <a href="report.html" target="_blank">
+            <p>Report an issue</p>
+        </a>
+    </footer>
+</body>
+</html>
